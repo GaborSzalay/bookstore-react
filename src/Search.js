@@ -12,7 +12,7 @@ class Search extends Component {
     
     handleChange(event) {
         this.setState({searchValue: event.target.value});
-    }    
+    }
     
     render() {
         return (
