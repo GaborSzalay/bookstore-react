@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { changeSearch } from './actions'
 
 class Search extends Component {
-    constructor() {
+    constructor({dispatch}) {
         super();
         this.state = {
             searchValue: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.dispatch = dispatch.bind(this);
     }
     
     handleChange(event) {
         this.setState({searchValue: event.target.value});
+        this.dispatch(changeSearch(event.target.value))
     }
     
     render() {
@@ -22,5 +26,7 @@ class Search extends Component {
         );
     }
 }
+
+Search = connect()(Search);
 
 export default Search;
