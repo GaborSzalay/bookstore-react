@@ -20,7 +20,6 @@ class Search extends Component {
     
     handleChange(event) {
         this.props.changeSearch(event.target.value);
-        console.log(this.props);
     }
     
     render() {
