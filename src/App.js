@@ -3,6 +3,13 @@ import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 import Search from './Search';
+import Cart from './Cart'
+import Detail from './Detail'
+import {
+  Router,
+  Route
+} from 'react-router-dom'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 const mapStateToProps = (state) => {
   return {searchValue: state.searchValue};
@@ -17,7 +24,13 @@ class App extends Component {
           <h2>Welcome to React</h2>
           <span>{this.props.searchValue}</span>
         </div>
-        <Search />
+        <Router history={createBrowserHistory()}>
+            <div>
+                <Route exact path="/" component={Search}/>
+                <Route path="/cart" component={Cart}/>
+                <Route path="/detail" component={Detail}/>            
+            </div>
+        </Router>           
       </div>
     );
   }
