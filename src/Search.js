@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { changeSearch } from './actions'
 
-class Search extends Component {
-    constructor({ dispatch }) {
-        super();
-        console.log(dispatch)
-    
+const mapStateToProps = (state) => {
+    return {searchValue: state.searchValue};
+};
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeSearch: (value) => {dispatch(changeSearch(value))}
+    };
+};
+
+class Search extends Component {
+    constructor() {
+        super();   
         this.handleChange = this.handleChange.bind(this);
-        this.dispatch = dispatch.bind(this);
     }
     
     handleChange(event) {
-        this.dispatch(changeSearch(event.target.value))
+        this.props.changeSearch(event.target.value);
         console.log(this.props);
     }
     
@@ -26,4 +32,4 @@ class Search extends Component {
     }
 }
 
-export default connect( state => { return {searchValue: state.searchValue} } )(Search);
+export default connect( mapStateToProps, mapDispatchToProps )(Search);
