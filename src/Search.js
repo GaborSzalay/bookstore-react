@@ -8,13 +8,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeSearch: (value) => {dispatch(changeSearch(value))}
+        changeSearch: (value) => { dispatch(changeSearch(value)) }
     };
 };
 
 class Search extends Component {
     constructor() {
-        super();   
+        super();
         this.handleChange = this.handleChange.bind(this);
     }
     
