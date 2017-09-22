@@ -7,6 +7,7 @@ import Cart from './Cart'
 import Detail from './Detail'
 import {Router, Route, Link} from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
+import AppBar from 'material-ui/AppBar';
 const history = createBrowserHistory();
 
 const mapStateToProps = (state) => {
@@ -33,6 +34,7 @@ class App extends Component {
                 <Link to="/detail">Detail</Link>
               </li>
             </ul>
+            <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more" />
           </div>
           <Route exact path="/" component={Search}/>
           <Route path="/cart" component={Cart}/>
