@@ -6,8 +6,8 @@ import Search from './Search';
 import Cart from './Cart'
 import Detail from './Detail'
 import {Router, Route, Link} from 'react-router-dom'
+import Button from 'react-md/lib/Buttons/Button';
 import createBrowserHistory from 'history/createBrowserHistory'
-import AppBar from 'material-ui/AppBar';
 const history = createBrowserHistory();
 
 const mapStateToProps = (state) => {
@@ -23,6 +23,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo"/>
             <h2>Welcome to React</h2>
             <span>{this.props.searchValue}</span>
+            <Button flat primary swapTheming>Hello</Button>
             <ul>
               <li>
                 <Link to="/">Search</Link>
@@ -34,7 +35,6 @@ class App extends Component {
                 <Link to="/detail">Detail</Link>
               </li>
             </ul>
-            <AppBar title="Title" iconClassNameRight="muidocs-icon-navigation-expand-more" />
           </div>
           <Route exact path="/" component={Search}/>
           <Route path="/cart" component={Cart}/>
